@@ -1,0 +1,84 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "google-validation;enter-something-in-google-textbox",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "enter something in google textbox",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 964653624
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "user is on google page",
+            "match": {
+              "location": "src/steps/google.steps.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 344691291
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "user enter \"macbook pro\" into search box",
+            "match": {
+              "location": "src/steps/google.steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19333500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "user enter the enter botton",
+            "match": {
+              "location": "src/steps/google.steps.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1749709582
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 104208958
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@smoke",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "google-validation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "google validation",
+    "tags": [],
+    "uri": "src/features/google.feature"
+  }
+]

@@ -4,6 +4,7 @@ import { config } from '../config/env.config';
 import { createDbClient, DbClient } from '../db/mssqlClient';
 import { DatabaseUtil } from '../utils/database.util';
 import { BrowserUtil } from '../utils/browser.util';
+import { getSystemBrowserPath } from '../utils/browser-path.util';
 
 export interface CustomWorld extends World {
   browser?: Browser;
@@ -41,9 +42,15 @@ class CustomWorldImpl extends World implements CustomWorld {
   async initBrowser() {
     const browserName = (process.env.BROWSER || 'chromium').toLowerCase();
     const headless = process.env.HEADLESS !== 'false';
-    if (browserName === 'firefox') this.browser = await firefox.launch({ headless });
-    else if (browserName === 'webkit') this.browser = await webkit.launch({ headless });
-    else this.browser = await chromium.launch({ headless });
+    const executablePath = await getSystemBrowserPath(browserName);
+    
+    if (browserName === 'firefox') {
+      this.browser = await firefox.launch({ headless, executablePath });
+    } else if (browserName === 'webkit') {
+      this.browser = await webkit.launch({ headless, executablePath });
+    } else {
+      this.browser = await chromium.launch({ headless, executablePath });
+    }
   }
 
   async initContext() {
